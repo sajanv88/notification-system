@@ -1,0 +1,26 @@
+# Notification System Monorepo
+
+This is simple notification system tutorial source code. 
+
+## Project Structure
+```bash
+logdash/
+├── apps/
+│   ├── frontend/     # NextJs app (UI & BFF)
+│   └── backend/      # NestJS Apps (Api & Notification engine)
+├── pnpm-workspace.yaml
+├── package.json
+```
+## Getting Started
+- Install deps
+```bash
+pnpm install
+```
+- Run frontend and backend
+```bash
+pnpm dev:frontend
+pnpm dev:backend
+```
+## Docker
+- `compose.yaml` file contains mongodb, redis and fake-smtp server. This is used for local development. 
+
