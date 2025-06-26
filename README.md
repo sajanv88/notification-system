@@ -24,3 +24,5 @@ pnpm dev:backend
 ## Docker
 - `compose.yaml` file contains mongodb, redis and fake-smtp server. This is used for local development. 
 
+## Fake SMTP 
+please read this guide: [fake-smtp](https://haravich.github.io/fake-smtp-server/)
