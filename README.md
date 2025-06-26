@@ -11,6 +11,29 @@ logdash/
 ├── pnpm-workspace.yaml
 ├── package.json
 ```
+## High Level Architecture
+
+```bash
+┌───────────────────────────────────────────────────────┐
+│                  Web/REST API Service                 │
+│  (NestJS - handles both event catalog & subscriptions)│
+└───────────────┬───────────────────────┬───────────────┘                │                               │
+                │                       │
+                ▼                       ▼
+┌─────────────────────────┐ ┌──────────────────────┐
+│       MongoDB           │ │        Redis          │
+│  (Events & Subscriptions)│ │ (Cache & Queue)      │
+└─────────────────────────┘ └──────────┬───────────┘
+                                       │
+                                       ▼
+┌───────────────────────────────────────────────────────┐
+│               Notification Engine Service              │
+│  (NestJS - handles scheduling & sending notifications)│
+└───────────────────────────────────────────────────────┘
+
+```
+
+
 ## Getting Started
 - Install deps
 ```bash
