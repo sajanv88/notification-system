@@ -42,8 +42,8 @@ pnpm install
 ```
 - Run frontend and backend
 ```bash
-pnpm dev:frontend
-pnpm dev:backend
+pnpm dev
+pnpm build # build both frontend and backend
 ```
 ## Docker
 - `compose.yaml` file contains mongodb, redis and fake-smtp server. This is used for local development. 
