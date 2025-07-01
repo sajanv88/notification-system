@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import { Logger, Module, OnModuleDestroy } from "@nestjs/common";
 import { createKeyv } from "@keyv/redis";
 import { CacheInterceptor, CacheModule } from "@nestjs/cache-manager";
 import { ConfigModule, ConfigService } from "@nestjs/config";
@@ -6,8 +6,10 @@ import { MongooseModule } from "@nestjs/mongoose";
 import { APP_INTERCEPTOR } from "@nestjs/core";
 import { Subscription, SubscriptionSchema } from "@repo/api/entities/subscription.entity";
 import { SubscriptionsService } from "./subscription.service";
-import { CqrsModule } from "@nestjs/cqrs";
+import { CqrsModule, UnhandledExceptionBus } from "@nestjs/cqrs";
 import { SubscriptionController } from "./subscription.controller";
+import { Subject } from "rxjs/internal/Subject";
+import { takeUntil } from "rxjs/internal/operators/takeUntil";
 
 @Module({
     imports: [
